@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 
     develop: {
       server: {
-        file: 'server.js',
+        file: 'app/server.js',
         env: { NODE_ENV: 'local', PATH: process.env.PATH }
       }
     },
@@ -138,7 +138,8 @@ module.exports = function(grunt) {
 
     bower: {
       client: {
-        js_dest: '<%= patterns.vendordir %>',
+        dest: 'bower_components/',
+        js_dest: '<%= patterns.pub %>/js/vendor',
         css_dest: '<%= patterns.pub %>/css/vendor',
         options: {
           ignorePackages: ['jasmine', 'jasmine-jquery'],
@@ -206,9 +207,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-usemin');
 
   // Default task.
-  grunt.registerTask('default', ['bower', 'compass:dev', 'jshint', 'karma:develop', 'connect:site',
+  grunt.registerTask('default', ['develop', 'bower', 'compass:dev', 'jshint', 'karma:develop', 'connect:site',
       'watch']);
-
-  grunt.registerTask('build', ['bower', 'compass:build', 'jshint', 'karma:develop', 'useminPrepare']);
 
 };
