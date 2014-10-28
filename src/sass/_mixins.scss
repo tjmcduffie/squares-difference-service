@@ -1,0 +1,21 @@
+@mixin position($type, $top: 0px, $right: null, $bottom: null, $left: null) {
+// @mixin position($type, $coords) {
+
+  @if not $right {
+    $right: $top;
+  }
+
+  @if not $bottom {
+    $bottom: $top;
+  }
+
+  @if not $left {
+    $left: $right;
+  }
+
+  bottom: $bottom;
+  left: $left;
+  position: $type;
+  right: $right;
+  top: $top;
+}
