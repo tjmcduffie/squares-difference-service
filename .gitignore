@@ -1,0 +1,17 @@
+locales
+log
+npm-debug.log
+public/uploads
+temp/uploadfs
+
+# npm & bower modules
+node_modules
+bower_components
+
+# minified js
+public/js/*.min.js
+
+# .files
+.idea
+.sass-cache
+.DS_Store
